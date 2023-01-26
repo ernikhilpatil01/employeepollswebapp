@@ -1,71 +1,39 @@
-# Getting Started with Create React App
+# Getting Started with Employee Polls Web App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Employee Polls Web App
 
-In the project directory, you can run:
+# Steps To Run This App
 
-### `npm start`
+Go to the project directory
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Run `npm install` to install dependancies/packages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Run `npm start` to start the app
 
-### `npm test`
+This Runs the app in the development mode.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm run build`
+### Run `npm test` to test the app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Login Functionality
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This app has login functionality. Once the user is logged in then only he/she can view the parts of the application such as Leaderboard, create new poll, vote.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Leaderboard Functionality
 
-### `npm run eject`
+This app has leaderboard component which displays leaderboard .
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# New Poll Functionality
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This app allows the logged user to create new polls.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Vote Functionality
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This app allows user to vote to any poll.
 
-## Learn More
+# Dashboard
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# employeepollswebapp" 
+This app has a dashboard where a logged user can view any poll, vote to any poll and see the leaderboard. Dashboard has links to all these functionalities.
