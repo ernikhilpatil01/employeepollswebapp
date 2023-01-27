@@ -10,8 +10,8 @@ import {handleLogin} from "../actions/authedUser";
 * @param loggedIn represents loggedIn flag
 */
 const Login = ({dispatch, loggedIn}) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("mtsamis");
+    const [password, setPassword] = useState("xyz123");
 
     if (loggedIn) {
         const urlParams = new URLSearchParams(window.location.search);

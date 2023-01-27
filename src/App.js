@@ -9,7 +9,6 @@ import {connect} from "react-redux";
 import Login from "./components/Login";
 import {handleInitialData} from "./actions/shared";
 import Leaderboard from "./components/Leaderboard";
-import Error404 from "./components/404";
 import PrivateRoute from "./components/PrivateRoute";
 
 /**
@@ -25,14 +24,13 @@ function App({dispatch, loggedIn}) {
 
     return (
         <div className="container mx-auto py-4">
-            {loggedIn && <Nav/>}
+            <Nav/>
             <Routes>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
                 <Route path="/leaderboard" exact element={<PrivateRoute><Leaderboard/></PrivateRoute>}/>
                 <Route path="/questions/:id" element={<PrivateRoute><PollPage/></PrivateRoute>}/>
                 <Route path="/add" exact element={<PrivateRoute><NewPoll/></PrivateRoute>}/>
-                <Route path="/404" exact element={<Error404/>}/>
             </Routes>
         </div>
     );
