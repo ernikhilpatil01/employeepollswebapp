@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import {handleInitialData} from "./actions/shared";
 import Leaderboard from "./components/Leaderboard";
 import PrivateRoute from "./components/PrivateRoute";
+import NotFound from './components/NotFound';
 
 /**
 * @description Represents App component
@@ -31,7 +32,7 @@ function App({dispatch, loggedIn}) {
                 <Route path="/leaderboard" exact element={<PrivateRoute><Leaderboard/></PrivateRoute>}/>
                 <Route path="/questions/:id" element={<PrivateRoute><PollPage/></PrivateRoute>}/>
                 <Route path="/add" exact element={<PrivateRoute><NewPoll/></PrivateRoute>}/>
-                <Route path="*" element={<>Not Found</>} />
+                <Route path="*" element={<NotFound/>} />
             </Routes>
         </div>
     );

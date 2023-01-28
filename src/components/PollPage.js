@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
-import {Navigate, useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {handleAddAnswer} from "../actions/questions";
 import "./PollPage.css";
+import NotFound from "./NotFound";
 
 const PollPage = ({dispatch, authedUser, questions, users}) => {
-    const navigate = useNavigate();
     const paramId = useParams().id;
     let question ;
     let author;
@@ -12,10 +12,10 @@ const PollPage = ({dispatch, authedUser, questions, users}) => {
         question = Object.values(questions).find((question) => question.id === paramId);
         author = Object.values(users).find((user) => user.id === question.author);
     } catch (e) {
-        return <Navigate to="/404"/>;
+        return <NotFound />;
     }
     if (!authedUser || !question || !author) {
-        return <Navigate to="/404"/>;
+        return <NotFound />;
     }
 
     const hasVotedForOptionOne = question.optionOne.votes.includes(authedUser.id);
@@ -25,13 +25,11 @@ const PollPage = ({dispatch, authedUser, questions, users}) => {
     const handleOptionOne = (e) => {
         e.preventDefault();
         dispatch(handleAddAnswer(question.id, "optionOne"));
-        navigate("/");
     };
 
     const handleOptionTwo = (e) => {
         e.preventDefault();
         dispatch(handleAddAnswer(question.id, "optionTwo"));
-        navigate("/");
     };
 
     const calcPercentage = (option, question) => {
