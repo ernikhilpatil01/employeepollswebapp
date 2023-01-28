@@ -11,11 +11,15 @@ import "./PollPage.css";
 * @param question represents a question
 * @param author represents author of the question
 */
-const PollPage = ({dispatch, authedUser, question, author}) => {
+const PollPage = ({dispatch, authedUser, questions, users}) => {
     const navigate = useNavigate();
 
+    const paramId = useParams().id;
+    const question = Object.values(questions).find((question) => question.id === paramId);
+    const author = Object.values(users).find((user) => user.id === question.author);
+    
     if (!authedUser || !question || !author) {
-        return <Navigate to="/404"/>;
+        return navigate("/404");
     }
 
     const hasVotedForOptionOne = question.optionOne.votes.includes(authedUser.id);
@@ -93,14 +97,7 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
 };
 
 const mapStateToProps = ({authedUser, users, questions}) => {
-    try {
-        const question = Object.values(questions).find((question) => question.id === useParams().id);
-        const author = Object.values(users).find((user) => user.id === question.author);
-        return {authedUser, question, author};
-    } catch (e) {
-        return <Navigate to="/404"/>;
-        // throw new Error(`Question or user is not found.\n ${e}`);
-    }
+    return {authedUser, users, questions};
 };
 
 export default connect(mapStateToProps)(PollPage);
