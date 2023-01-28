@@ -3,23 +3,19 @@ import {Navigate, useNavigate, useParams} from "react-router-dom";
 import {handleAddAnswer} from "../actions/questions";
 import "./PollPage.css";
 
-/**
-* @description Represents Poll page
-* @constructor
-* @param dispatch represents dispatch function
-* @param authedUser represents authorized user
-* @param question represents a question
-* @param author represents author of the question
-*/
 const PollPage = ({dispatch, authedUser, questions, users}) => {
     const navigate = useNavigate();
-
     const paramId = useParams().id;
-    const question = Object.values(questions).find((question) => question.id === paramId);
-    const author = Object.values(users).find((user) => user.id === question.author);
-    
+    let question ;
+    let author;
+    try {
+        question = Object.values(questions).find((question) => question.id === paramId);
+        author = Object.values(users).find((user) => user.id === question.author);
+    } catch (e) {
+        return <Navigate to="/404"/>;
+    }
     if (!authedUser || !question || !author) {
-        return navigate("/404");
+        return <Navigate to="/404"/>;
     }
 
     const hasVotedForOptionOne = question.optionOne.votes.includes(authedUser.id);
@@ -97,7 +93,7 @@ const PollPage = ({dispatch, authedUser, questions, users}) => {
 };
 
 const mapStateToProps = ({authedUser, users, questions}) => {
-    return {authedUser, users, questions};
+    return {authedUser, users, questions}
 };
 
 export default connect(mapStateToProps)(PollPage);
